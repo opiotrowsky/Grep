@@ -15,7 +15,10 @@ int main(int argc, char *argv[]) {
         }
     }
 
+    MyGrep lookForThis(wordToFind);
+    lookForThis.searchForWord();
+
     std::vector<std::thread> threadPool;
 
-    
+    std::cout << "Searched files: " << lookForThis.getSearchedFilesNum() << "\n";
 }

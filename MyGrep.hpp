@@ -4,7 +4,6 @@
 #include <thread>
 #include <iostream>
 #include <fstream>
-#include <iterator>
 #include <filesystem>
 
 class MyGrep {
@@ -12,8 +11,7 @@ class MyGrep {
     std::string _logFileName;
     std::string _resFileName;
     std::string _searchedDir;
-    std::vector<std::string> _searchedFiles;
-    std::fstream _logFile, _resultFile;
+    size_t _searchedFiles = 0, _filesWithWord = 0;
 
 public:
     MyGrep (std::string passedWord, std::string passedLogName, std::string passedResName, std::string passedDir)
@@ -23,8 +21,12 @@ public:
         , _searchedDir(passedDir)
     {}
     MyGrep (std::string passedWord)
-        : MyGrep(passedWord, "MyGrep.log", "MyGrep.txt", ".")
+        : MyGrep(passedWord, "MyGrep.log", "MyGrep.txt", "..")
     {}
     ~MyGrep() {}
 
+    //getters
+    size_t getSearchedFilesNum() { return _searchedFiles; }
+
+    void searchForWord();
 };
