@@ -1,4 +1,3 @@
-#include <iostream>
 #include "MyGrep.hpp"
 
 int main(int argc, char *argv[]) {
@@ -21,4 +20,6 @@ int main(int argc, char *argv[]) {
     std::vector<std::thread> threadPool;
 
     std::cout << "Searched files: " << lookForThis.getSearchedFilesNum() << "\n";
+    std::cout << "Files with pattern: " << lookForThis.getFoundWordFilesNum() << "\n";
+    std::cout << "Patterns number: " << lookForThis.getFoundWordCount() << "\n";
 }
