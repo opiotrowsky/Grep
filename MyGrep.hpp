@@ -1,8 +1,6 @@
 #pragma once
 #include <string>
 #include <vector>
-#include <algorithm>
-#include <thread>
 #include <iostream>
 #include <fstream>
 #include <filesystem>
