@@ -16,10 +16,13 @@ int main(int argc, char *argv[]) {
 
     MyGrep lookForThis(wordToFind);
     lookForThis.searchForWord();
+    lookForThis.createResFile();
+    lookForThis.createLogFile();
 
-    std::vector<std::thread> threadPool;
+    // std::vector<std::thread> threadPool;
 
     std::cout << "Searched files: " << lookForThis.getSearchedFilesNum() << "\n";
     std::cout << "Files with pattern: " << lookForThis.getFoundWordFilesNum() << "\n";
     std::cout << "Patterns number: " << lookForThis.getFoundWordCount() << "\n";
+    std::cout << "Result file: " << lookForThis.getResFileDir() << "\n";
 }

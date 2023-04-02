@@ -13,6 +13,7 @@ class MyGrep {
     std::string _resFileName;
     std::string _searchedDir;
     size_t _searchedFiles = 0, _filesWithWord = 0, _wordCount = 0;
+    std::vector<std::string> _log, _res;
 
 public:
     MyGrep (std::string passedWord, std::string passedLogName, std::string passedResName, std::string passedDir)
@@ -22,7 +23,7 @@ public:
         , _searchedDir(passedDir)
     {}
     MyGrep (std::string passedWord)
-        : MyGrep(passedWord, "MyGrep.log", "MyGrep.txt", "../locs")//std::filesystem::current_path().u8string())
+        : MyGrep(passedWord, "MyGrep.log", "MyGrep.txt", std::filesystem::current_path().parent_path().string())//std::filesystem::current_path().u8string())
     {}
     ~MyGrep() {}
 
@@ -30,6 +31,10 @@ public:
     size_t getSearchedFilesNum() { return _searchedFiles; }
     size_t getFoundWordFilesNum() { return _filesWithWord; }
     size_t getFoundWordCount() { return _wordCount; }
+    std::string getResFileDir() { return std::filesystem::current_path().parent_path().string() + "/" + _resFileName; }
+    std::string getLogFileDir() { return std::filesystem::current_path().parent_path().string() + "/" + _logFileName; }
 
     void searchForWord();
+    void createResFile();
+    void createLogFile();
 };
