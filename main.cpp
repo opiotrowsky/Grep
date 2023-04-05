@@ -1,9 +1,14 @@
 #include "MyGrep.hpp"
+// #include "ThreadPool.hpp"
 #include <chrono>
 
 int main(int argc, char *argv[]) {
     auto start = std::chrono::high_resolution_clock::now();
     std::string wordToFind;
+    std::string resName;
+    std::string logName;
+    std::string dirName;
+    size_t threadsNum = 0;
     if(argc <= 1) {
         std::cout << "Write a phrase you're looking for, in this pattern: ./MyGrep <phrase>\n";
         return 0;
@@ -17,12 +22,28 @@ int main(int argc, char *argv[]) {
     // Use argv[2], argv[3], etc to read flags to change settings of grep
     std::vector<std::string> flags;
     if(argc > 2) {
-        for(int i = 2; i < argc - 1; i++) {
+        for(int i = 2; i < argc; i++) {
             flags.push_back(argv[i]);
+        }
+        flags.shrink_to_fit();
+    }
+    for(size_t i = 0; i < flags.size(); i++) {
+        if(flags.at(i) == "-d" || flags.at(i) == "--dir") {
+            dirName = flags.at(i + 1);
+        }
+        if(flags.at(i) == "-r" || flags.at(i) == "--result_file") {
+            resName = flags.at(i + 1);
+        }
+        if(flags.at(i) == "-l" || flags.at(i) == "--log_file") {
+            logName = flags.at(i + 1);
+        }
+        if(flags.at(i) == "-t" || flags.at(i) == "--threads") {
+            threadsNum = std::stoi(flags.at(i + 1));
         }
     }
 
     MyGrep lookForThis(wordToFind);
+    lookForThis.setFlags(dirName, logName, resName, threadsNum);
     lookForThis.searchForWord();
     lookForThis.createResFile();
     lookForThis.createLogFile();

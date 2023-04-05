@@ -1,4 +1,5 @@
 #pragma once
+// #include "ThreadPool.hpp"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -7,23 +8,22 @@
 
 class MyGrep {
     std::string _wordToFind;
-    std::string _logFileName;
-    std::string _resFileName;
-    std::string _searchedDir;
+    std::string _logFileName = "MyGrep.log";
+    std::string _resFileName = "MyGrep.txt";
+    std::filesystem::path _searchedDir = std::filesystem::current_path().parent_path();
+    size_t _numOfThreads = 4;
     size_t _searchedFiles = 0, _filesWithWord = 0, _wordCount = 0;
-    std::vector<std::string> _log, _res;
+    std::vector<std::string> _log, _res;//_flags;
 
 public:
-    MyGrep (std::string passedWord, std::string passedLogName, std::string passedResName, std::string passedDir)
+    MyGrep (std::string passedWord)//std::vector<std::string> passedFlags)
         : _wordToFind(passedWord)
-        , _logFileName(passedLogName)
-        , _resFileName(passedResName)
-        , _searchedDir(passedDir)
-    {}
-    MyGrep (std::string passedWord)
-        : MyGrep(passedWord, "MyGrep.log", "MyGrep.txt", std::filesystem::current_path().parent_path().string())//std::filesystem::current_path().u8string())
+        // , _flags(std::move(passedFlags))
     {}
     ~MyGrep() {}
+
+    //setters
+    void setFlags(std::string passedDir, std::string passedLogName, std::string passedResName, size_t passedThreads);
 
     //getters
     size_t getSearchedFilesNum() { return _searchedFiles; }
