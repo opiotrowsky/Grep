@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/MyGrep.dir/main.cpp.o  -o MyGrep  libMyGrep-lib.a 

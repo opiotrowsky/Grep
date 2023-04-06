@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/f/Rekrutacja Tietoevry/MyGrep.hpp
+string
+-
+vector
+-
+iostream
+-
+fstream
+-
+filesystem
+-
+
+/mnt/f/Rekrutacja Tietoevry/main.cpp
+MyGrep.hpp
+/mnt/f/Rekrutacja Tietoevry/MyGrep.hpp
+chrono
+-
+

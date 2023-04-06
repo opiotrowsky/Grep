@@ -1,5 +1,4 @@
 #include "MyGrep.hpp"
-// #include "ThreadPool.hpp"
 #include <chrono>
 
 int main(int argc, char *argv[]) {
@@ -55,6 +54,6 @@ int main(int argc, char *argv[]) {
     std::cout << "Patterns number: " << lookForThis.getFoundWordCount() << "\n";
     std::cout << "Result file: " << lookForThis.getResFileDir() << "\n";
     std::cout << "Log file: " << lookForThis.getLogFileDir() << "\n";
-    std::cout << "Used threads: " << lookForThis.getThreadsNum() << "\n";
+    std::cout << "Used threads: should be " << lookForThis.getThreadsNum() << " but there was none :(\n";
     std::cout << "Elapsed time: " << std::chrono::duration_cast<std::chrono::milliseconds>(stop - start).count() << "[ms]\n";
 }

@@ -81,6 +81,11 @@ void MyGrep::createLogFile() {
     if(!logFile.is_open()) {
         std::cerr << "Could not create the log file\n";
     }
+    if(_log.empty()) {
+        logFile << "There were no threads used :(\n";
+        logFile.close();
+        return;
+    }
     for(const auto& logLine : _log) {
         logFile << logLine;
     }
