@@ -5,9 +5,9 @@ które się w nim znajdują, i utworzenie pliku z wynikami poszukiwań oraz plik
 działających wątków. Za pomocą flag istnieje możliwość zmiany przeszukiwanej ścieżki, nazw
 powstających plików oraz ilości działających wątków. Na koniec działania programu ma zostać
 wyświetlony komunikat, przedstawiający informacje takie jak: ilość przeszukanych plików,
-ilość plików zawierających poszukiwaną frazę, ilość znalezionych instancji, nazwę pliku
-z wynikami działania programu i z logami wątków (tutaj pozwoliłem sobie na wyświetlenie
-całych ścieżek do plików), ilości działających wątków oraz czas działania programu.
+ilość plików zawierających poszukiwaną frazę, ilość znalezionych instancji, ścieżkę do pliku
+z wynikami działania programu i z logami wątków, ilości działających wątków oraz czas działania
+programu.
 
 Zrobiłem również podstawowy plik CMakeLists.txt, jedyny sposób jaki znam na kompilację
 z jego pomocą to utworzenie i wejście w folder build/ i wpisanie kolejno komend:
