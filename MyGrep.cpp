@@ -15,13 +15,26 @@ void MyGrep::setFlags(std::string passedDir, std::string passedLogName, std::str
     }
 }
 
+void MyGrep::threadPool() {
+    ThreadPool searchingThreads(_numOfThreads);
+    searchingThreads.start();
+    searchingThreads.busy();
+    searchingThreads.queueATask([this](){
+        
+    });
+    searchingThreads.stop();
+}
+
 void MyGrep::searchForWord() {
+    ThreadPool searchingThreads(_numOfThreads);
+
     std::ifstream readFile;
     std::string line;
     std::vector<std::string> resTemp;
     size_t lineNum = 1;
     bool isWordInFile = false;
     int wordCountInFile = 0, maxWordCountInFile = 0;
+
     for(const auto& dirElement : std::filesystem::recursive_directory_iterator(_searchedDir)) {
         if(std::filesystem::is_directory(dirElement.path())) {
             continue;
@@ -32,13 +45,15 @@ void MyGrep::searchForWord() {
         }
 
         while(std::getline(readFile, line)) {
-            if(line.find(_wordToFind) != std::string::npos) {
-                resTemp.push_back(dirElement.path().string() + ":" + std::to_string(lineNum) + ": " + line + "\n");
-                _wordCount++;
-                wordCountInFile++;
-                isWordInFile = true;
-            }
-            lineNum++;
+            searchingThreads.queueATask([this, line, resTemp, dirElement, lineNum, wordCountInFile, isWordInFile](){
+                if(line.find(_wordToFind) != std::string::npos) {
+                    resTemp.push_back(dirElement.path().string() + ":" + std::to_string(lineNum) + ": " + line + "\n");
+                    _wordCount++;
+                    wordCountInFile++;
+                    isWordInFile = true;
+                }
+                lineNum++;
+            });
         }
         readFile.close();
 
@@ -63,6 +78,10 @@ void MyGrep::searchForWord() {
         _searchedFiles++;
         wordCountInFile = 0;
     }
+
+    searchingThreads.start();
+    searchingThreads.stop();
+
 }
 
 void MyGrep::createResFile() {

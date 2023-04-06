@@ -1,5 +1,5 @@
 #pragma once
-// #include "ThreadPool.hpp"
+#include "ThreadPool.hpp"
 #include <string>
 #include <vector>
 #include <iostream>
@@ -23,6 +23,11 @@ public:
 
     //setters
     void setFlags(std::string passedDir, std::string passedLogName, std::string passedResName, size_t passedThreads);
+    void threadPool();
+
+    void searchForWord();
+    void createResFile();
+    void createLogFile();
 
     //getters
     size_t getThreadsNum() { return _numOfThreads; }
@@ -31,8 +36,4 @@ public:
     size_t getFoundWordCount() { return _wordCount; }
     std::string getResFileDir() { return std::filesystem::current_path().parent_path().string() + "/" + _resFileName; }
     std::string getLogFileDir() { return std::filesystem::current_path().parent_path().string() + "/" + _logFileName; }
-
-    void searchForWord();
-    void createResFile();
-    void createLogFile();
 };
