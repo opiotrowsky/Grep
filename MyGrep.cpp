@@ -43,13 +43,15 @@ void MyGrep::searchForWord() {
         readFile.close();
 
         if(wordCountInFile > maxWordCountInFile) {
-            // std::reverse(_res.begin(), _res.end());
-            // for(const auto& el : resTemp)
             for(int i = resTemp.size() - 1; i >= 0; i--) {
                 _res.insert(_res.begin(), resTemp[i]);
             }
-            
             maxWordCountInFile = wordCountInFile;
+        }
+        else {
+            for(const auto& el : resTemp) {
+                _res.push_back(el);
+            }
         }
 
         if(isWordInFile) {

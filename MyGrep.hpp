@@ -13,12 +13,11 @@ class MyGrep {
     std::filesystem::path _searchedDir = std::filesystem::current_path().parent_path();
     size_t _numOfThreads = 4;
     size_t _searchedFiles = 0, _filesWithWord = 0, _wordCount = 0;
-    std::vector<std::string> _log, _res;//_flags;
+    std::vector<std::string> _log, _res;
 
 public:
-    MyGrep (std::string passedWord)//std::vector<std::string> passedFlags)
+    MyGrep (std::string passedWord)
         : _wordToFind(passedWord)
-        // , _flags(std::move(passedFlags))
     {}
     ~MyGrep() {}
 
@@ -26,6 +25,7 @@ public:
     void setFlags(std::string passedDir, std::string passedLogName, std::string passedResName, size_t passedThreads);
 
     //getters
+    size_t getThreadsNum() { return _numOfThreads; }
     size_t getSearchedFilesNum() { return _searchedFiles; }
     size_t getFoundWordFilesNum() { return _filesWithWord; }
     size_t getFoundWordCount() { return _wordCount; }
