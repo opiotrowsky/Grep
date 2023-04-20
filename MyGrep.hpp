@@ -30,6 +30,10 @@ public:
     size_t getFoundWordCount() { return _wordCount; }
     std::string getResFileDir() { return std::filesystem::current_path().parent_path().string() + "/" + _resFileName; }
     std::string getLogFileDir() { return std::filesystem::current_path().parent_path().string() + "/" + _logFileName; }
+    //following three getters are for test cases:
+    std::string getResFileName() { return _resFileName; }
+    std::string getLogFileName() { return _logFileName; }
+    std::string getSearchedDir() { return _searchedDir.string(); }
 
     void searchForWord();
     void createResFile();
