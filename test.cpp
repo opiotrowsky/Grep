@@ -140,5 +140,72 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
                 REQUIRE(lookFor.getThreadsNum() == newThrdNum);
             }
         }
+
+        WHEN("'-d', '-l' and '-r' flags are set") {
+            newDir = "c/users/download";
+            newLogFile = "newLog.log";
+            newResFile = "newRes.txt";
+            lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
+
+            THEN("searched directory, log file name and result file name should be changed") {
+                REQUIRE(lookFor.getSearchedDir() == newDir);
+                REQUIRE(lookFor.getLogFileName() == newLogFile);
+                REQUIRE(lookFor.getResFileName() == newResFile);
+            }
+        }
+
+        WHEN("'-d', '-l' and '-t' flags are set") {
+            newDir = "c/users/download";
+            newLogFile = "newLog.log";
+            newThrdNum = 12;
+            lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
+
+            THEN("searched directory, log file name and thread number should be changed") {
+                REQUIRE(lookFor.getSearchedDir() == newDir);
+                REQUIRE(lookFor.getLogFileName() == newLogFile);
+                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+            }
+        }
+
+        WHEN("'-d', '-r' and '-t' flags are set") {
+            newDir = "c/users/download";
+            newResFile = "newRes.txt";
+            newThrdNum = 12;
+            lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
+
+            THEN("searched directory, log file name and thread number should be changed") {
+                REQUIRE(lookFor.getSearchedDir() == newDir);
+                REQUIRE(lookFor.getResFileName() == newResFile);
+                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+            }
+        }
+
+        WHEN("'-l', '-r' and '-t' flags are set") {
+            newLogFile = "newLog.log";
+            newResFile = "newRes.txt";
+            newThrdNum = 12;
+            lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
+
+            THEN("log file name, res file name and thread number should be changed") {
+                REQUIRE(lookFor.getLogFileName() == newLogFile);
+                REQUIRE(lookFor.getResFileName() == newResFile);
+                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+            }
+        }
+
+        WHEN("'-d', '-l', '-r' and '-t' flags are set") {
+            newDir = "c/users/download";
+            newLogFile = "newLog.log";
+            newResFile = "newRes.txt";
+            newThrdNum = 12;
+            lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
+
+            THEN("searched directory, log file name, res file name and thread number should be changed") {
+                REQUIRE(lookFor.getSearchedDir() == newDir);
+                REQUIRE(lookFor.getLogFileName() == newLogFile);
+                REQUIRE(lookFor.getResFileName() == newResFile);
+                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+            }
+        }
     }
 }
