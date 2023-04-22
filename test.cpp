@@ -209,3 +209,24 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
         }
     }
 }
+
+SCENARIO("Program, while looking for word 'house', generates output information.") {
+    GIVEN("The word 'house' and folder locs/ with files prepared for testing") {
+        std::string word = "house";
+        MyGrep lookFor(word);
+
+        WHEN("we search prepared directory with only '-d' flag") {
+            std::string testDir = std::filesystem::current_path().parent_path().string() + "/locs";
+            std::string emptyLogFile, emptyResFile;
+            int emptyThrdNum;
+            lookFor.setFlags(testDir, emptyLogFile, emptyResFile, emptyThrdNum);
+            lookFor.searchForWord();
+
+            THEN("the output data") {
+                REQUIRE(lookFor.getSearchedFilesNum() == 6);
+                REQUIRE(lookFor.getFoundWordFilesNum() == 3);
+                REQUIRE(lookFor.getFoundWordCount() == 5);
+            }
+        }
+    }
+}
