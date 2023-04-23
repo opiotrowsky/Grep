@@ -82,7 +82,7 @@ void MyGrep::createLogFile() {
         std::cerr << "Could not create the log file\n";
     }
     if(_log.empty()) {
-        logFile << "There were no threads used :(\n";
+        logFile << "There was no multithreading :(\n";
         logFile.close();
         return;
     }
