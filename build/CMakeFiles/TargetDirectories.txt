@@ -1,4 +1,0 @@
-/mnt/f/Rekrutacja Tietoevry/build/CMakeFiles/rebuild_cache.dir
-/mnt/f/Rekrutacja Tietoevry/build/CMakeFiles/edit_cache.dir
-/mnt/f/Rekrutacja Tietoevry/build/CMakeFiles/MyGrep.dir
-/mnt/f/Rekrutacja Tietoevry/build/CMakeFiles/MyGrep-lib.dir
