@@ -10,10 +10,10 @@ SCENARIO("Program is looking for words with default settings.") {
             lookFor.searchForWord();
             
             THEN("default settings should be:") {
-                REQUIRE(lookFor.getSearchedDir() == std::filesystem::current_path().parent_path().string());
-                REQUIRE(lookFor.getResFileName() == "MyGrep.txt");
-                REQUIRE(lookFor.getLogFileName() == "MyGrep.log");
-                REQUIRE(lookFor.getThreadsNum() == 4);
+                CHECK(lookFor.getSearchedDir() == std::filesystem::current_path().parent_path().string());
+                CHECK(lookFor.getResFileName() == "MyGrep.txt");
+                CHECK(lookFor.getLogFileName() == "MyGrep.log");
+                CHECK(lookFor.getThreadsNum() == 4);
             }
         }
     }
@@ -33,7 +33,7 @@ SCENARIO("Program is looking for words with single flag.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("new directory should be 'c/users/download'") {
-                REQUIRE(lookFor.getSearchedDir() == newDir);
+                CHECK(lookFor.getSearchedDir() == newDir);
             }
         }
 
@@ -42,7 +42,7 @@ SCENARIO("Program is looking for words with single flag.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("new log file name should be 'newLog.log'") {
-                REQUIRE(lookFor.getLogFileName() == newLogFile);
+                CHECK(lookFor.getLogFileName() == newLogFile);
             }
         }
 
@@ -51,7 +51,7 @@ SCENARIO("Program is looking for words with single flag.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("new result file name should be 'newRes.txt'") {
-                REQUIRE(lookFor.getResFileName() == newResFile);
+                CHECK(lookFor.getResFileName() == newResFile);
             }
         }
 
@@ -60,7 +60,7 @@ SCENARIO("Program is looking for words with single flag.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("new threads number should be 12") {
-                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+                CHECK(lookFor.getThreadsNum() == newThrdNum);
             }
         }
     }
@@ -81,8 +81,8 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("searched directory and log file name should be changed") {
-                REQUIRE(lookFor.getSearchedDir() == newDir);
-                REQUIRE(lookFor.getLogFileName() == newLogFile);
+                CHECK(lookFor.getSearchedDir() == newDir);
+                CHECK(lookFor.getLogFileName() == newLogFile);
             }
         }
 
@@ -92,8 +92,8 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("searched directory and result file name should be changed") {
-                REQUIRE(lookFor.getSearchedDir() == newDir);
-                REQUIRE(lookFor.getResFileName() == newResFile);
+                CHECK(lookFor.getSearchedDir() == newDir);
+                CHECK(lookFor.getResFileName() == newResFile);
             }
         }
 
@@ -103,8 +103,8 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("searched directory and thread number should be changed") {
-                REQUIRE(lookFor.getSearchedDir() == newDir);
-                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+                CHECK(lookFor.getSearchedDir() == newDir);
+                CHECK(lookFor.getThreadsNum() == newThrdNum);
             }
         }
 
@@ -114,8 +114,8 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("log file and result file names should be changed") {
-                REQUIRE(lookFor.getLogFileName() == newLogFile);
-                REQUIRE(lookFor.getResFileName() == newResFile);
+                CHECK(lookFor.getLogFileName() == newLogFile);
+                CHECK(lookFor.getResFileName() == newResFile);
             }
         }
 
@@ -125,8 +125,8 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("log file name and thread number should be changed") {
-                REQUIRE(lookFor.getLogFileName() == newLogFile);
-                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+                CHECK(lookFor.getLogFileName() == newLogFile);
+                CHECK(lookFor.getThreadsNum() == newThrdNum);
             }
         }
 
@@ -136,8 +136,8 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("res file name and thread number should be changed") {
-                REQUIRE(lookFor.getResFileName() == newResFile);
-                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+                CHECK(lookFor.getResFileName() == newResFile);
+                CHECK(lookFor.getThreadsNum() == newThrdNum);
             }
         }
 
@@ -148,9 +148,9 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("searched directory, log file name and result file name should be changed") {
-                REQUIRE(lookFor.getSearchedDir() == newDir);
-                REQUIRE(lookFor.getLogFileName() == newLogFile);
-                REQUIRE(lookFor.getResFileName() == newResFile);
+                CHECK(lookFor.getSearchedDir() == newDir);
+                CHECK(lookFor.getLogFileName() == newLogFile);
+                CHECK(lookFor.getResFileName() == newResFile);
             }
         }
 
@@ -161,9 +161,9 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("searched directory, log file name and thread number should be changed") {
-                REQUIRE(lookFor.getSearchedDir() == newDir);
-                REQUIRE(lookFor.getLogFileName() == newLogFile);
-                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+                CHECK(lookFor.getSearchedDir() == newDir);
+                CHECK(lookFor.getLogFileName() == newLogFile);
+                CHECK(lookFor.getThreadsNum() == newThrdNum);
             }
         }
 
@@ -174,9 +174,9 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("searched directory, log file name and thread number should be changed") {
-                REQUIRE(lookFor.getSearchedDir() == newDir);
-                REQUIRE(lookFor.getResFileName() == newResFile);
-                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+                CHECK(lookFor.getSearchedDir() == newDir);
+                CHECK(lookFor.getResFileName() == newResFile);
+                CHECK(lookFor.getThreadsNum() == newThrdNum);
             }
         }
 
@@ -187,9 +187,9 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("log file name, res file name and thread number should be changed") {
-                REQUIRE(lookFor.getLogFileName() == newLogFile);
-                REQUIRE(lookFor.getResFileName() == newResFile);
-                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+                CHECK(lookFor.getLogFileName() == newLogFile);
+                CHECK(lookFor.getResFileName() == newResFile);
+                CHECK(lookFor.getThreadsNum() == newThrdNum);
             }
         }
 
@@ -201,10 +201,10 @@ SCENARIO("Program is looking for word 'house' with multiple flags.") {
             lookFor.setFlags(newDir, newLogFile, newResFile, newThrdNum);
 
             THEN("searched directory, log file name, res file name and thread number should be changed") {
-                REQUIRE(lookFor.getSearchedDir() == newDir);
-                REQUIRE(lookFor.getLogFileName() == newLogFile);
-                REQUIRE(lookFor.getResFileName() == newResFile);
-                REQUIRE(lookFor.getThreadsNum() == newThrdNum);
+                CHECK(lookFor.getSearchedDir() == newDir);
+                CHECK(lookFor.getLogFileName() == newLogFile);
+                CHECK(lookFor.getResFileName() == newResFile);
+                CHECK(lookFor.getThreadsNum() == newThrdNum);
             }
         }
     }
@@ -222,11 +222,104 @@ SCENARIO("Program, while looking for word 'house', generates output information.
             lookFor.setFlags(testDir, emptyLogFile, emptyResFile, emptyThrdNum);
             lookFor.searchForWord();
 
-            THEN("the output data") {
-                REQUIRE(lookFor.getSearchedFilesNum() == 6);
-                REQUIRE(lookFor.getFoundWordFilesNum() == 3);
-                REQUIRE(lookFor.getFoundWordCount() == 5);
+            THEN("the output data should be like that in the testing directory") {
+                CHECK(lookFor.getSearchedFilesNum() == 6);
+                CHECK(lookFor.getFoundWordFilesNum() == 3);
+                CHECK(lookFor.getFoundWordCount() == 5);
             }
+        }
+
+        WHEN("we search prepared directory with all possible flags") {
+            std::string testDir = std::filesystem::current_path().parent_path().string() + "/locs";
+            std::string testLogFile = "testLog.log";
+            std::string testResFile = "testRes.txt";
+            int testThrdNum = 10;
+            lookFor.setFlags(testDir, testLogFile, testResFile, testThrdNum);
+            lookFor.searchForWord();
+
+            THEN("the output data should not change according to no flags") {
+                CHECK(lookFor.getSearchedFilesNum() == 6);
+                CHECK(lookFor.getFoundWordFilesNum() == 3);
+                CHECK(lookFor.getFoundWordCount() == 5);
+            }
+        }
+    }
+}
+
+SCENARIO("Program, while looking for word 'house', creates files containing program's result and log info") {
+    GIVEN("The word 'house' and folder locs/ with files prepared for testing") {
+        std::string word = "house";
+        MyGrep lookFor(word);
+
+        WHEN("there is only '-d' flag for testing folder") {
+            std::string testDir = std::filesystem::current_path().parent_path().string() + "/locs";
+            std::string emptyLogFile, emptyResFile;
+            int emptyThrdNum;
+            lookFor.setFlags(testDir, emptyLogFile, emptyResFile, emptyThrdNum);
+            lookFor.searchForWord();
+            lookFor.createLogFile();
+            lookFor.createResFile();
+
+            THEN("there should be default result and log files") {
+                CHECK(lookFor.getLogFileDir() == std::filesystem::current_path().parent_path().string() + "/MyGrep.log");
+                CHECK(lookFor.getResFileDir() == std::filesystem::current_path().parent_path().string() + "/MyGrep.txt");
+                std::filesystem::remove(std::filesystem::path(lookFor.getLogFileDir()));
+                std::filesystem::remove(std::filesystem::path(lookFor.getResFileDir()));
+            }
+        }
+
+        WHEN("there is '-d' flag for testing folder and '-l' to change log file name") {
+            std::string testDir = std::filesystem::current_path().parent_path().string() + "/locs";
+            std::string testLogFile = "testLog.log";
+            std::string emptyResFile;
+            int emptyThrdNum;
+            lookFor.setFlags(testDir, testLogFile, emptyResFile, emptyThrdNum);
+            lookFor.searchForWord();
+            lookFor.createLogFile();
+            lookFor.createResFile();
+
+            THEN("there should be default result file and changed log file") {
+                CHECK(lookFor.getLogFileDir() == std::filesystem::current_path().parent_path().string() + "/" + testLogFile);
+                CHECK(lookFor.getResFileDir() == std::filesystem::current_path().parent_path().string() + "/MyGrep.txt");
+            }
+            std::filesystem::remove(std::filesystem::path(lookFor.getLogFileDir()));
+            std::filesystem::remove(std::filesystem::path(lookFor.getResFileDir()));
+        }
+
+        WHEN("there is '-d' flag for testing folder and '-r' to change log file name") {
+            std::string testDir = std::filesystem::current_path().parent_path().string() + "/locs";
+            std::string emptyLogFile;
+            std::string testResFile = "testRes.txt";
+            int emptyThrdNum;
+            lookFor.setFlags(testDir, emptyLogFile, testResFile, emptyThrdNum);
+            lookFor.searchForWord();
+            lookFor.createLogFile();
+            lookFor.createResFile();
+
+            THEN("there should be changed result file and default log file") {
+                CHECK(lookFor.getLogFileDir() == std::filesystem::current_path().parent_path().string() + "/MyGrep.log");
+                CHECK(lookFor.getResFileDir() == std::filesystem::current_path().parent_path().string() + "/" + testResFile);
+            }
+            std::filesystem::remove(std::filesystem::path(lookFor.getLogFileDir()));
+            std::filesystem::remove(std::filesystem::path(lookFor.getResFileDir()));
+        }
+
+        WHEN("there is '-d' flag for testing folder, '-l' and '-r' to change log and result files names") {
+            std::string testDir = std::filesystem::current_path().parent_path().string() + "/locs";
+            std::string testLogFile = "testLog.log";
+            std::string testResFile = "testRes.txt";
+            int emptyThrdNum;
+            lookFor.setFlags(testDir, testLogFile, testResFile, emptyThrdNum);
+            lookFor.searchForWord();
+            lookFor.createLogFile();
+            lookFor.createResFile();
+
+            THEN("there should be changed result file and default log file") {
+                CHECK(lookFor.getLogFileDir() == std::filesystem::current_path().parent_path().string() + "/" + testLogFile);
+                CHECK(lookFor.getResFileDir() == std::filesystem::current_path().parent_path().string() + "/" + testResFile);
+            }
+            std::filesystem::remove(std::filesystem::path(lookFor.getLogFileDir()));
+            std::filesystem::remove(std::filesystem::path(lookFor.getResFileDir()));
         }
     }
 }
