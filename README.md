@@ -1,22 +1,9 @@
-# Grep
+# Grep Unit Tests
 
-### Zadaniem programu jest znalezienie danej frazy wśród plików z bieżącego folderu i folderów,
-### które się w nim znajdują, i utworzenie pliku z wynikami poszukiwań oraz pliku z logami
-### działających wątków. Za pomocą flag istnieje możliwość zmiany przeszukiwanej ścieżki, nazw
-### powstających plików oraz ilości działających wątków. Na koniec działania programu ma zostać
-### wyświetlony komunikat, przedstawiający informacje takie jak: ilość przeszukanych plików,
-### ilość plików zawierających poszukiwaną frazę, ilość znalezionych instancji, nazwę pliku
-### z wynikami działania programu i z logami wątków (tutaj pozwoliłem sobie na wyświetlenie
-### całych ścieżek do plików), ilości działających wątków oraz czas działania programu.
+### This branch was created to contain unit tests for MyGrep program. Tests are written in Catch2 framework, CMakeLists.txt attached to this branch compiles test.cpp file as well. The testing executable will be called MyGrep-ut after successful compilation.
 
-Zrobiłem również podstawowy plik CMakeLists.txt, jedyny sposób jaki znam na kompilację
-z jego pomocą to utworzenie i wejście w folder build/ i wpisanie kolejno komend:
+The only way I know to compile using CMake is to create and enter build/ folder and type following commands:
 ```
 cmake ..
 make
 ```
-lub pobranie go z tego repozytorium, można wtedy pominąć pierwszą komendę.
-
-Próbowałem również stworzyć pulę wątków i funkcję przeszukania ścieżki zmusić do działania
-w wątkach, ale z racji, że to mój pierwszy kontakt z wielowątkowością, nie udało się. Moje
-próby widoczne są na gałęzi threadpool.
